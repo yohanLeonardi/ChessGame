@@ -1,0 +1,16 @@
+.title {
+  text-align: center;
+}
+
+.chessboard {
+  margin: auto;
+  width: 50%;
+}
+
+.square {
+  display: inline-block;
+  border-style: solid;
+  border-width: 1px;
+  width: 64px;
+  height: 64px;
+}
