@@ -5,21 +5,23 @@ function init() {
 function initBoard() {
   var board = $('#board');
   for (var i = 0; i < 8; i++) {
-    board.append(initRow());
+    board.append(initRow(8-i));
   }
 }
 
-function initRow() {
+function initRow(index) {
   return $( '<div/>', {
-      html: initSquares(),
-      'class': 'row'
+      html: initSquares(index),
+      'class': 'row',
+      'id': 'row'+index
   });
 }
 
-function initSquares() {
+function initSquares(index) {
+  var columnNames = 'abcdefgh';
   var squares = '';
   for (var i = 0; i < 8; i++) {
-    squares += '<div class="square">'
+    squares += '<div class="square" id='+columnNames.charAt(i)+(index)+'>'
             // + '<img src="./img/chesspieces/pdt60.png" alt="Spreadsheet screenshot.">'
             + '</div>';
   }
