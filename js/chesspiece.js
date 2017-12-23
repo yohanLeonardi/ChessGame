@@ -60,13 +60,13 @@ class Bishop extends ChessPiece{
 class Queen extends ChessPiece{
   constructor(id, color, position) {
     let imgSrc = (color === 'dark' ? 'qdt60.png' : 'qlt60.png');
-    super('bishop', id, color, position, imgSrc);
+    super('queen', id, color, position, imgSrc);
   }
 }
 
 class King extends ChessPiece{
   constructor(id, color, position) {
     let imgSrc = (color === 'dark' ? 'kdt60.png' : 'klt60.png');
-    super('bishop', id, color, position, imgSrc);
+    super('king', id, color, position, imgSrc);
   }
 }

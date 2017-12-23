@@ -1,5 +1,6 @@
 function init() {
   initBoard();
+  chessPieceManager.init();
 }
 
 function initBoard() {
@@ -22,7 +23,6 @@ function initSquares(index) {
   var squares = '';
   for (var i = 0; i < 8; i++) {
     squares += '<div class="square" id='+columnNames.charAt(i)+(index)+'>'
-            // + '<img src="./img/chesspieces/pdt60.png" alt="Spreadsheet screenshot.">'
             + '</div>';
   }
   return squares;
