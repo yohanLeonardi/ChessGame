@@ -1,9 +1,9 @@
 class ChessPiece {
-  constructor(type, id, color, position) {
+  constructor(type, id, color, position, imgSrc) {
     this.type = type;
     this.id = this.type+'_'+id;
     this.color = color;
-    this.imgSrc = (color === 'dark' ? 'pdt60.png' : 'plt60.png');
+    this.imgSrc = imgSrc;
     this.position = position;
     this.moved = false;
   }
@@ -31,36 +31,42 @@ class ChessPiece {
 
 class Pawn extends ChessPiece{
   constructor(id, color, position) {
-    super('pawn', id, color, position);
+    let imgSrc = (color === 'dark' ? 'pdt60.png' : 'plt60.png');
+    super('pawn', id, color, position, imgSrc);
   }
 }
 
 class Rook extends ChessPiece{
   constructor(id, color, position) {
-    super('rook', id, color, position);
+    let imgSrc = (color === 'dark' ? 'rdt60.png' : 'rlt60.png');
+    super('rook', id, color, position, imgSrc);
   }
 }
 
 class Knight extends ChessPiece{
   constructor(id, color, position) {
-    super('knight', id, color, position);
+    let imgSrc = (color === 'dark' ? 'ndt60.png' : 'nlt60.png');
+    super('knight', id, color, position, imgSrc);
   }
 }
 
 class Bishop extends ChessPiece{
   constructor(id, color, position) {
-    super('bishop', id, color, position);
+    let imgSrc = (color === 'dark' ? 'bdt60.png' : 'blt60.png');
+    super('bishop', id, color, position, imgSrc);
   }
 }
 
 class Queen extends ChessPiece{
   constructor(id, color, position) {
-    super('bishop', id, color, position);
+    let imgSrc = (color === 'dark' ? 'qdt60.png' : 'qlt60.png');
+    super('bishop', id, color, position, imgSrc);
   }
 }
 
 class King extends ChessPiece{
   constructor(id, color, position) {
-    super('bishop', id, color, position);
+    let imgSrc = (color === 'dark' ? 'kdt60.png' : 'klt60.png');
+    super('bishop', id, color, position, imgSrc);
   }
 }
