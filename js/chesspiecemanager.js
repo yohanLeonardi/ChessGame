@@ -49,34 +49,6 @@ var chessPieceManager = (function () {
     }
   }
 
-  // function initPawn(index, color) {
-  //   return new Pawn((index+1), color, filesList.charAt(index)+rank[color]['line1']);
-  // }
-  //
-  // function initRook (id, color, position) {
-  //   return new Rook(id, color, position);
-  // }
-  //
-  // function initKnight (id, index, color) {
-  //   return new Knight(id, color, filesList.charAt(index)+rank[color]['line2']);
-  // }
-  //
-  // function initKnight (id, index, color) {
-  //   return new Knight(id, color, filesList.charAt(index)+rank[color]['line2']);
-  // }
-  //
-  // function initBishop (id, index, color) {
-  //   return new Bishop(id, color, filesList.charAt(index)+rank[color]['line2']);
-  // }
-  //
-  // function initQueen (id, index, color) {
-  //   return new Queen(id, color, filesList.charAt(index)+rank[color]['line2']);
-  // }
-  //
-  // function initKing (id, index, color) {
-  //   return new King(id, color, filesList.charAt(index)+rank[color]['line2']);
-  // }
-
   // Expose these functions via an interface while hiding
   // the implementation of the module within the function() block
 
