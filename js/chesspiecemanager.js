@@ -21,22 +21,14 @@ var chessPieceManager = (function () {
     for (var i = 0; i < 8; i++) {
       initFirstLine(i, color);
       initSecondLine(i, color);
-      // let piece2;
-      // if (i === 0 || i === 7) piece2 = initRook(i, color);
-      // if (i === 1 || i === 6) piece2= initKnight(i, color);
-      // if (i === 2 || i === 5) piece2= initBishop(i, color);
-      // if (i === 3) piece2= initQueen(i, color);
-      // if (i === 4) piece2= initKing(i, color);
-      //
-      // if (piece2 != null) {
-      //   piece2.init();
-      //   chessPieces.push(piece2);
-      // }
     }
   }
 
+  //IDEA: it might be complicated by starting id from 1,
+  //      but such a thing as Pawn 0 sounds weird too.
   function initFirstLine (fileIndex, color) {
-    let piece = initPawn(fileIndex, color);
+    let position = filesList.charAt(fileIndex)+rank[color]['line1'];
+    let piece = new Pawn((fileIndex+1), color, position);
     piece.init();
     chessPieces.push(piece);
   }
@@ -44,12 +36,12 @@ var chessPieceManager = (function () {
   function initSecondLine (fileIndex, color) {
     let id = fileIndex <= 4 ? 1 : 2;
     let piece;
-    let position = filesList.charAt(fileIndex)+rank[color]['line1'];
-    if (fileIndex === 0 || fileIndex === 7) piece = initRook(id, fileIndex, color);
-    if (fileIndex === 1 || fileIndex === 6) piece = initKnight(id, fileIndex, color);
-    if (fileIndex === 2 || fileIndex === 5) piece = initBishop(id, fileIndex, color);
-    if (fileIndex === 3) piece = initQueen(id, fileIndex, color);
-    if (fileIndex === 4) piece = initKing(id, fileIndex, color);
+    let position = filesList.charAt(fileIndex)+rank[color]['line2'];
+    if (fileIndex === 0 || fileIndex === 7) piece = new Rook(id, color, position);
+    else if (fileIndex === 1 || fileIndex === 6) piece = new Knight(id, color, position);
+    else if (fileIndex === 2 || fileIndex === 5) piece = new Bishop(id, color, position);
+    else if (fileIndex === 3) piece = new Queen(id, color, position);
+    else if (fileIndex === 4) piece = new King(id, color, position);
 
     if (piece != null) {
       piece.init();
@@ -57,35 +49,33 @@ var chessPieceManager = (function () {
     }
   }
 
-  //IDEA: it might be complicated by starting id from 1,
-  //      but such a thing as Pawn 0 sounds weird too.
-  function initPawn(index, color) {
-    return new Pawn((index+1), color, filesList.charAt(index)+rank[color]['line1']);
-  }
-
-  function initRook (id, index, color) {
-    return new Rook(id, color, filesList.charAt(index)+rank[color]['line2']);
-  }
-
-  function initKnight (id, index, color) {
-    return new Knight(id, color, filesList.charAt(index)+rank[color]['line2']);
-  }
-
-  function initKnight (id, index, color) {
-    return new Knight(id, color, filesList.charAt(index)+rank[color]['line2']);
-  }
-
-  function initBishop (id, index, color) {
-    return new Bishop(id, color, filesList.charAt(index)+rank[color]['line2']);
-  }
-
-  function initQueen (id, index, color) {
-    return new Queen(id, color, filesList.charAt(index)+rank[color]['line2']);
-  }
-
-  function initKing (id, index, color) {
-    return new King(id, color, filesList.charAt(index)+rank[color]['line2']);
-  }
+  // function initPawn(index, color) {
+  //   return new Pawn((index+1), color, filesList.charAt(index)+rank[color]['line1']);
+  // }
+  //
+  // function initRook (id, color, position) {
+  //   return new Rook(id, color, position);
+  // }
+  //
+  // function initKnight (id, index, color) {
+  //   return new Knight(id, color, filesList.charAt(index)+rank[color]['line2']);
+  // }
+  //
+  // function initKnight (id, index, color) {
+  //   return new Knight(id, color, filesList.charAt(index)+rank[color]['line2']);
+  // }
+  //
+  // function initBishop (id, index, color) {
+  //   return new Bishop(id, color, filesList.charAt(index)+rank[color]['line2']);
+  // }
+  //
+  // function initQueen (id, index, color) {
+  //   return new Queen(id, color, filesList.charAt(index)+rank[color]['line2']);
+  // }
+  //
+  // function initKing (id, index, color) {
+  //   return new King(id, color, filesList.charAt(index)+rank[color]['line2']);
+  // }
 
   // Expose these functions via an interface while hiding
   // the implementation of the module within the function() block
