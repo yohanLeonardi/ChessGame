@@ -29,6 +29,23 @@ var boardManager = (function () {
     return squares;
   }
 
+  function allowDrop(e) {
+    e.preventDefault();
+  }
+
+  function drop(e) {
+    e.preventDefault();
+    var data;
+    if (e.dataTransfer) {
+      data = e.dataTransfer.getData("pieceid");
+    } else if (e.originalEvent.dataTransfer){
+      data = e.originalEvent.dataTransfer.getData("pieceid");
+    }
+    if (data) {
+      e.target.appendChild(document.getElementById(data));
+    }
+  }
+
   // Expose these functions via an interface while hiding
   // the implementation of the module within the function() block
 
@@ -41,6 +58,8 @@ var boardManager = (function () {
     },
 
     addEvent: function() {
+      $('.square').on('drop', drop);
+      $('.square').on('dragover', allowDrop);
     }
   }
 })();
