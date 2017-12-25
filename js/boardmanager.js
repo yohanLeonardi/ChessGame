@@ -35,14 +35,14 @@ var boardManager = (function () {
 
   function drop(e) {
     e.preventDefault();
-    var data;
+    let id;
     if (e.dataTransfer) {
-      data = e.dataTransfer.getData("pieceid");
+      id = e.dataTransfer.getData("pieceid");
     } else if (e.originalEvent.dataTransfer){
-      data = e.originalEvent.dataTransfer.getData("pieceid");
+      id = e.originalEvent.dataTransfer.getData("pieceid");
     }
-    if (data) {
-      e.target.appendChild(document.getElementById(data));
+    if (id) {
+      e.target.appendChild(document.getElementById(id));
     }
   }
 

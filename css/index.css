@@ -2,9 +2,15 @@
   text-align: center;
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .chessboard {
-  margin: auto;
-  width: 50%;
+  /* margin: auto;
+  width: 50%; */
 }
 
 .square {
