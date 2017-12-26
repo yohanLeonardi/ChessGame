@@ -11,6 +11,7 @@ var boardManager = (function () {
       line2: 1
     }
   };
+  let isLightNext = true;
 
   function initRow(index) {
     return $( '<div/>', {
@@ -27,6 +28,10 @@ var boardManager = (function () {
               + '</div>';
     }
     return squares;
+  }
+
+  function displayTurn() {
+    $('#status-bar').html('<h4>Next Turn: '+(isLightNext ? 'light' : 'dark')+'</h4>');
   }
 
   function allowDrop(e) {
@@ -60,6 +65,7 @@ var boardManager = (function () {
     addEvent: function() {
       $('.square').on('drop', drop);
       $('.square').on('dragover', allowDrop);
+      displayTurn();
     }
   }
 })();
