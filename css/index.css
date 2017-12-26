@@ -2,9 +2,21 @@
   text-align: center;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#status-bar {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 .chessboard {
-  margin: auto;
-  width: 50%;
+  /* margin: auto;
+  width: 50%; */
 }
 
 .square {
