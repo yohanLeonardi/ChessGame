@@ -13,17 +13,6 @@ class ChessPiece {
             + '<img src="./img/chesspieces/'+this.imgSrc+'" alt="Chess piece" draggable="false">'
             + '</div>';
     $('#'+this.position).append(obj);
-    // this.addDragEvent();
-  }
-
-  addDragEvent() {
-    $('#'+this.color+'_'+this.id).on('dragstart', function(e) {
-      if (e.dataTransfer) {
-        e.dataTransfer.setData('pieceid', e.target.id);
-      } else if (e.originalEvent.dataTransfer){
-        e.originalEvent.dataTransfer.setData('pieceid', e.target.id);
-      }
-    });
   }
 
   set(destination) {
