@@ -9,11 +9,11 @@ class ChessPiece {
   }
 
   init() {
-    var obj = '<div id = "'+this.color+'_'+this.id+'" draggable="true">'
+    var obj = '<div class="piece" id = "'+this.color+'_'+this.id+'" draggable="true">'
             + '<img src="./img/chesspieces/'+this.imgSrc+'" alt="Chess piece" draggable="false">'
             + '</div>';
     $('#'+this.position).append(obj);
-    this.addDragEvent();
+    // this.addDragEvent();
   }
 
   addDragEvent() {

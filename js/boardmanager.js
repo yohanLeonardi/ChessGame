@@ -30,6 +30,14 @@ var boardManager = (function () {
     return squares;
   }
 
+  function drag(e) {
+    if (e.dataTransfer) {
+      e.dataTransfer.setData('pieceid', e.target.id);
+    } else if (e.originalEvent.dataTransfer){
+      e.originalEvent.dataTransfer.setData('pieceid', e.target.id);
+    }
+  }
+
   function displayTurn() {
     $('#status-bar').html('<h4>Next Turn: '+(isLightNext ? 'light' : 'dark')+'</h4>');
   }
@@ -47,8 +55,15 @@ var boardManager = (function () {
       id = e.originalEvent.dataTransfer.getData("pieceid");
     }
     if (id) {
+      console.log(id + ' moved to ' + e.target.id);
       e.target.appendChild(document.getElementById(id));
+      endTurn();
     }
+  }
+
+  function endTurn() {
+    isLightNext = !isLightNext;
+    displayTurn();
   }
 
   // Expose these functions via an interface while hiding
@@ -63,6 +78,7 @@ var boardManager = (function () {
     },
 
     addEvent: function() {
+      $('.piece').on('dragstart', drag);
       $('.square').on('drop', drop);
       $('.square').on('dragover', allowDrop);
       displayTurn();
