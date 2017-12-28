@@ -58,8 +58,15 @@ var chessPieceManager = (function () {
       initPieces('light');
     },
 
-    getChessPiece: function(divID) {
+    find: function(divID) {
       //parse div ID
+      return chessPieces.find(function(e) {
+        if (e.id === divID) return true;
+      });
+    },
+
+    getPieces: function () {
+      return chessPieces;
     }
   }
 })();
